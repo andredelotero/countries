@@ -3,7 +3,6 @@ import { PaginatedItems } from "../components/Pagination/Pagination";
 import { Spin } from "../components/Spinner/Spinner";
 
 const URL = "https://restcountries.com/v3.1/all";
-
 const GetCountries = ({ filter }) => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -23,6 +22,7 @@ const GetCountries = ({ filter }) => {
   countries.sort((a, b) =>
     a.name.common > b.name.common ? 1 : b.name.common > a.name.common ? -1 : 0
   );
+
   return (
     <>
       {loading ? <Spin /> : null}

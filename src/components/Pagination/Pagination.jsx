@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import "./Pagination.css";
 import { StyledCard, StyledContainer } from "./Card";
+import { Link } from "react-router-dom";
 
 function Items({ currentItems }) {
   return (
@@ -11,6 +12,9 @@ function Items({ currentItems }) {
           currentItems.map((item) => (
             <StyledCard key={item.name.common}>
               <h4>{item.name.common}</h4>
+              <Link className="" to={`/${item.name.common}`}>
+                See more information
+              </Link>
               <img src={item.flags.png} alt={item.name.common} />
             </StyledCard>
           ))}
