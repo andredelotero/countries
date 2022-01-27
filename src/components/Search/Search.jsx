@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { GetCountries } from "../../services/GetCountries";
 import { StyledSearch } from "./StyledSearch";
 
