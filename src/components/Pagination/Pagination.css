@@ -1,4 +1,5 @@
-.container {
+.container,
+.results {
   display: flex;
   border: 1px solid #c0c0c0;
   justify-content: center;
@@ -7,8 +8,12 @@
   height: 45px;
   line-height: 45px;
   width: fit-content;
-  margin: 0 auto;
+  margin: 1rem auto;
   max-width: 100%;
+}
+.results {
+  padding-inline: 1rem;
+  margin-bottom: 1rem;
 }
 .container a {
   cursor: pointer;

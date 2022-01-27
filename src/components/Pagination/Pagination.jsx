@@ -47,7 +47,7 @@ export function PaginatedItems({ data }) {
     <>
       {data.length > 0 ? (
         <>
-          <p className="container">
+          <p className="results">
             {data.length} {data.length > 1 ? "results" : "result"}
           </p>
           <Items currentItems={currentItems} />
