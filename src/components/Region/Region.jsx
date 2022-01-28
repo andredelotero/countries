@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const StyledRegions = styled.div`
   display: flex;
@@ -11,6 +11,10 @@ const StyledRegions = styled.div`
   padding-inline: 1rem;
   margin: 0 auto;
   border: 1px solid black;
+  .active {
+    background-color: green;
+    color: #fff;
+  }
   .link {
     padding-inline: 1rem;
     text-decoration: none;
@@ -25,24 +29,24 @@ export const Regions = () => {
   return (
     <StyledRegions>
       Search by region:
-      <Link className="link" to={`/`}>
+      <NavLink className="link" active="active" to={`/`}>
         All regions
-      </Link>
-      <Link className="link" to={`/region/Africa`}>
+      </NavLink>
+      <NavLink className="link" active="active" to={`/region/Africa`}>
         Africa
-      </Link>
-      <Link className="link" to={`/region/America`}>
+      </NavLink>
+      <NavLink className="link" active="active" to={`/region/America`}>
         America
-      </Link>
-      <Link className="link" to={`/region/Asia`}>
+      </NavLink>
+      <NavLink className="link" active="active" to={`/region/Asia`}>
         Asia
-      </Link>
-      <Link className="link" to={`/region/Europe`}>
+      </NavLink>
+      <NavLink className="link" active="active" to={`/region/Europe`}>
         Europe
-      </Link>
-      <Link className="link" to={`/region/Oceania`}>
+      </NavLink>
+      <NavLink className="link" active="active" to={`/region/Oceania`}>
         Oceania
-      </Link>
+      </NavLink>
     </StyledRegions>
   );
 };
