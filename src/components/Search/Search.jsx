@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { StyledSearch } from "./StyledSearch";
 
-export const useSearch = () => {
+export const Search = () => {
   const [searchValue, setSearchValue] = useState("");
-  const SearchForm = () => {
-    return (
-      <label htmlFor="search-form">
-        <StyledSearch
-          placeholder="Search for..."
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-      </label>
-    );
-  };
-  return { SearchForm, searchValue };
+
+  return (
+    <label htmlFor="search-form">
+      <StyledSearch
+        placeholder="Search for..."
+        value={searchValue}
+        onChange={(e) => {
+          setSearchValue(e.target.value);
+        }}
+      />
+    </label>
+  );
 };
