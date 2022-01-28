@@ -1,3 +1,3 @@
-# site deployed at Vercel
+# site deployed on Vercel
 
 link: https://countries-andre.vercel.app/
