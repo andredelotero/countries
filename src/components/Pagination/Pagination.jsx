@@ -23,7 +23,7 @@ function Items({ currentItems }) {
   );
 }
 
-export function PaginatedItems({ data }) {
+export function PaginatedItems({ data, filter }) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -69,7 +69,7 @@ export function PaginatedItems({ data }) {
           />
         </>
       ) : (
-        <h6 className="container">No results found</h6>
+        filter.length > 0 && <h6 className="results">No results found</h6>
       )}
     </>
   );

@@ -15,7 +15,7 @@ const GetCountries = ({ filter }) => {
         setCountries(jsonResponse);
       })
       .catch((err) => console.log(err))
-      .finally(setTimeout(() => setLoading(false), 200));
+      .finally(setTimeout(() => setLoading(false), 400));
   }, []);
 
   countries.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
@@ -30,6 +30,7 @@ const GetCountries = ({ filter }) => {
         data={countries.filter((a) =>
           a.name.common.startsWith(filter.toUpperCase())
         )}
+        filter={filter}
       />
     </>
   );
