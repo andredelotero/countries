@@ -15,6 +15,7 @@ export const StyledCard = styled.div`
   overflow: hidden;
   text-align: center;
   border: 1px solid #c0c0c0;
+  background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

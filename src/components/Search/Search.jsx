@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { GetCountries } from "../../services/GetCountries";
 import { StyledSearch } from "./StyledSearch";
 
-export const Search = () => {
-  const [search, setSearch] = useState("");
-  return (
-    <label htmlFor="search-form">
-      <StyledSearch
-        placeholder="Search for..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <GetCountries filter={search} />
-    </label>
-  );
+export const useSearch = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const SearchForm = () => {
+    return (
+      <label htmlFor="search-form">
+        <StyledSearch
+          placeholder="Search for..."
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </label>
+    );
+  };
+  return { SearchForm, searchValue };
 };

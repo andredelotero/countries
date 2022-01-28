@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useGetData } from "../../services/GetData";
+import { Spin } from "../Spinner/Spinner";
 
 const StyledCountryDetail = styled.div`
   border: 1px solid black;
@@ -9,6 +10,7 @@ const StyledCountryDetail = styled.div`
   flex-direction: column;
   width: 90%;
   max-width: 400px;
+  background-color: #f1f1f1;
   p {
     font-weight: 600;
     line-height: 1.5;
@@ -22,39 +24,38 @@ const StyledCountryDetail = styled.div`
 
 const CountryDetail = () => {
   const { id } = useParams();
-  const URL = `https://restcountries.com/v3.1/name/${id}`;
-
-  const [country, setCountry] = useState([]);
-
-  useEffect(() => {
-    fetch(URL)
-      .then((response) => response.json())
-      .then((jsonResponse) => {
-        setCountry(jsonResponse[0]);
-      })
-      .catch((err) => console.log(err));
-  }, [URL]);
-
-  const { name, area, population, capital, flags } = country;
+  const URL = `name/${id}`;
+  const { data, loading } = useGetData(URL);
 
   return (
     <>
-      <StyledCountryDetail>
-        <p>Name: {name?.common}</p>
-        <p>Capital: {capital}</p>
-        <p>
-          Area: {area?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} kms2
-        </p>
-        <p>
-          Population:{" "}
-          {population?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} people
-        </p>
-        <p>Official flag:</p>
-        <img src={flags?.png} alt={name?.common} />
-      </StyledCountryDetail>
-      <Link className="" to={`/`}>
-        Go back to index
-      </Link>
+      {loading ? (
+        <Spin />
+      ) : (
+        <>
+          <StyledCountryDetail>
+            <p>Name: {data[0]?.name.common}</p>
+            <p>Capital: {data[0]?.capital}</p>
+            <p>
+              Area:{" "}
+              {data[0]?.area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+              kms2
+            </p>
+            <p>
+              Population:{" "}
+              {data[0]?.population
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+              people
+            </p>
+            <p>Official flag:</p>
+            <img src={data[0]?.flags.png} alt={data[0]?.name.common} />
+          </StyledCountryDetail>
+          <Link className="" to={`/`}>
+            Go back to index
+          </Link>
+        </>
+      )}
     </>
   );
 };
