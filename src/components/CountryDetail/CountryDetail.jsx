@@ -9,6 +9,7 @@ const StyledCountryDetail = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
+  margin: 2rem auto;
   max-width: 400px;
   background-color: #f1f1f1;
   p {
@@ -19,6 +20,19 @@ const StyledCountryDetail = styled.div`
     max-width: 350px;
     height: auto;
     margin-top: 1rem;
+  }
+  .link {
+    text-align: center;
+    font-weight: 600;
+    margin-block: 1rem;
+    padding: 1rem 2rem;
+    color: #0000ff;
+    text-decoration: none;
+    user-select: none;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 `;
 
@@ -50,10 +64,10 @@ const CountryDetail = () => {
             </p>
             <p>Official flag:</p>
             <img src={data[0]?.flags.png} alt={data[0]?.name.common} />
+            <Link className="link" to={`/`}>
+              Go back to index
+            </Link>
           </StyledCountryDetail>
-          <Link className="" to={`/`}>
-            Go back to index
-          </Link>
         </>
       )}
     </>

@@ -18,6 +18,7 @@ const StyledRegions = styled.div`
   .link {
     padding-inline: 1rem;
     text-decoration: none;
+    user-select: none;
     &:hover {
       background-color: #000;
       color: #fff;

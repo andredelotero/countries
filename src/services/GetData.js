@@ -11,7 +11,7 @@ export const useGetData = (url) => {
       .then((jsonResponse) => {
         setData(jsonResponse);
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log("error fetching data: " + err))
       .finally(setTimeout(() => setLoading(false), 400));
   }, [FULL_URL]);
 
