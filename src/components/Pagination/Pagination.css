@@ -28,3 +28,12 @@
   color: white;
   background-color: #0d6efd;
 }
+
+.moreInformation,
+.countryTitle {
+  color: #00007c;
+  font-weight: 600;
+}
+.countryTitle {
+  font-size: 18px;
+}

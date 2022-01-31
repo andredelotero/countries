@@ -11,8 +11,8 @@ function Items({ currentItems }) {
         {currentItems &&
           currentItems.map((item) => (
             <StyledCard key={item.name.common}>
-              <h4>{item.name.common}</h4>
-              <Link className="" to={`/${item.name.common}`}>
+              <p className="countryTitle">{item.name.common}</p>
+              <Link className="moreInformation" to={`/${item.name.common}`}>
                 See more information
               </Link>
               <img src={item.flags.png} alt={item.name.common} />

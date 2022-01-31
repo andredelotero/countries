@@ -24,6 +24,7 @@ const GetCountries = ({ filter = "", url = "all" }) => {
         <Spin />
       ) : (
         <>
+          {console.log("despues del spin")}
           <p className="results">
             You are in: {id === undefined ? "All regions" : id}
           </p>
