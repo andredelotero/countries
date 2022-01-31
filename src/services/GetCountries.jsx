@@ -10,7 +10,7 @@ const GetCountries = ({ filter = "", url = "all" }) => {
   const [searchValue, setSearchValue] = useState("");
   let fullId = "";
   id !== undefined && id.length > 1 && (fullId = "region/" + id);
-  const { data, loading } = useGetData(fullId.length > 1 ? fullId : url);
+  const { data } = useGetData(fullId.length > 1 ? fullId : url);
   filter = searchValue;
 
   data.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
@@ -20,11 +20,10 @@ const GetCountries = ({ filter = "", url = "all" }) => {
 
   return (
     <>
-      {loading ? (
+      {data.length === 0 ? (
         <Spin />
       ) : (
         <>
-          {console.log("despues del spin")}
           <p className="results">
             You are in: {id === undefined ? "All regions" : id}
           </p>
@@ -36,7 +35,6 @@ const GetCountries = ({ filter = "", url = "all" }) => {
               setSearchValue(e.target.value);
             }}
           />
-
           <PaginatedItems
             data={data.filter((a) =>
               a.name.common.startsWith(filter.toUpperCase())
