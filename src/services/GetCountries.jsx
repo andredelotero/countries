@@ -10,7 +10,7 @@ const GetCountries = ({ filter = "", url = "all" }) => {
   const [searchValue, setSearchValue] = useState("");
   let fullId = "";
   id !== undefined && id.length > 1 && (fullId = "region/" + id);
-  const { data } = useGetData(fullId.length > 1 ? fullId : url);
+  const { data, loading } = useGetData(fullId.length > 1 ? fullId : url);
   filter = searchValue;
 
   data.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
@@ -20,7 +20,7 @@ const GetCountries = ({ filter = "", url = "all" }) => {
 
   return (
     <>
-      {data.length === 0 ? (
+      {loading ? (
         <Spin />
       ) : (
         <>

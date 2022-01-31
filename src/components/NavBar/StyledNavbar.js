@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  width: 100%;
+  width: 95%;
   height: 70px;
   border: 1px solid #cecece;
+  max-width: 1360px;
+  margin: 0 auto;
 `;
 export const StyledWrapper = styled.div`
   width: 100%;
-  max-width: 1240px;
+  max-width: 1360px;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: auto;
+  margin: 0 auto;
   position: relative;
 `;
 
@@ -31,19 +33,19 @@ export const StyledMenu = styled.ul`
   list-style: none;
   z-index: 999;
   transition: all 200ms linear;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 960px) {
     flex-direction: column;
+    padding: 0;
     position: absolute;
     top: 70px;
     left: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
     width: 100%;
-    margin-bottom: 2rem;
   }
 `;
 export const StyledMenuItem = styled.li`
   height: 100%;
   background-color: white;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 960px) {
     width: 100%;
     height: 3rem;
   }
@@ -56,7 +58,8 @@ export const StyledBurguer = styled.div`
   font-size: 1.6rem;
   margin-right: 2rem;
   cursor: pointer;
-  @media screen and (max-width: 900px) {
+  transition: 250ms linear all;
+  @media screen and (max-width: 960px) {
     transform: rotate(${({ isOpen }) => (isOpen ? "-45deg" : "0")});
     display: flex;
   }

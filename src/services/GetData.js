@@ -8,13 +8,18 @@ export const useGetData = (url) => {
 
   useEffect(() => {
     setLoading(true);
+    setData([]);
     fetch(FULL_URL)
       .then((response) => response.json())
       .then((jsonResponse) => {
         setData(jsonResponse);
       })
       .catch((err) => setError(err))
-      .finally(setLoading(false));
+      .finally(
+        setTimeout(() => {
+          setLoading(false);
+        }, 400)
+      );
   }, [FULL_URL]);
 
   return { data, loading, error };
