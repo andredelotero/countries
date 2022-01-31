@@ -10,7 +10,8 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledCard = styled.div`
-  width: 250px;
+  max-width: 300px;
+  width: 90%;
   height: 250px;
   overflow: hidden;
   text-align: center;
@@ -20,10 +21,11 @@ export const StyledCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: 1rem;
+  padding: 1rem;
   img {
-    object-fit: cover;
     width: 100%;
+    object-fit: contain;
     height: auto;
-    max-height: 200px;
+    max-height: 120px;
   }
 `;

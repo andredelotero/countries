@@ -7,13 +7,13 @@ import { StyledCountryDetail } from "./StyledCountryDetail";
 const CountryDetail = () => {
   const { id } = useParams();
   const URL = `name/${id}`;
-  const { data, loading } = useGetData(URL);
+  const { data } = useGetData(URL);
 
   return (
     <>
-      {loading ? (
+      {data.length < 1 ? (
         <Spin />
-      ) : (
+      ) : data.length !== undefined ? (
         <>
           <StyledCountryDetail>
             <p>Name: {data[0]?.name.common}</p>
@@ -37,6 +37,8 @@ const CountryDetail = () => {
             </Link>
           </StyledCountryDetail>
         </>
+      ) : (
+        <p>country not found</p>
       )}
     </>
   );
