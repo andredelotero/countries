@@ -1,4 +1,4 @@
-.container,
+.containerPagination,
 .results {
   display: flex;
   border: 1px solid #c0c0c0;
@@ -9,18 +9,17 @@
   line-height: 45px;
   width: fit-content;
   margin: 1rem auto;
-  max-width: 100%;
 }
 .results {
   padding-inline: 1rem;
   margin-bottom: 1rem;
 }
-.container a {
+.containerPagination a {
   cursor: pointer;
   font-weight: 600;
   padding: 0 1rem;
 }
-.container li {
+.containerPagination li {
   border-inline: 1px solid #c0c0c0;
   list-style: none;
 }

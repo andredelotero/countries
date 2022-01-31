@@ -24,6 +24,9 @@ const GetCountries = ({ filter = "", url = "all" }) => {
         <Spin />
       ) : (
         <>
+          <p className="results">
+            You are in: {id === undefined ? "All regions" : id}
+          </p>
           <StyledSearch
             htmlFor="search-form"
             placeholder="Search for..."

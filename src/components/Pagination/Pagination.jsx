@@ -59,7 +59,7 @@ export function PaginatedItems({ data, filter }) {
             pageCount={pageCount}
             previousLabel="< "
             renderOnZeroPageCount={null}
-            containerClassName="container"
+            containerClassName="containerPagination"
             activeClassName="current"
           />
         </>

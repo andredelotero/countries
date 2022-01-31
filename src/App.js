@@ -1,14 +1,16 @@
-import "./App.css";
-import { Regions } from "./components/Region/Region";
 import { Routes, Route } from "react-router-dom";
 import { CountryDetail } from "./components/CountryDetail/CountryDetail";
 import { GetCountries } from "./services/GetCountries";
+import { NavBar } from "./components/NavBar/Navbar";
+
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
       <h1 className="centeredText">250 countries in total</h1>
-      <Regions />
+      <NavBar />
       <Routes>
         <Route path="/" exact element={<GetCountries />} />
         <Route path="/:id" exact element={<CountryDetail />} />
