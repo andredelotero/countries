@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const StyledRegions = styled.div`
   display: flex;
-  height: 45px;
+  flex-wrap: wrap;
+  height: 65px;
   line-height: 45px;
   align-items: center;
   width: fit-content;
@@ -11,6 +12,7 @@ const StyledRegions = styled.div`
   padding-inline: 1rem;
   margin: 0 auto;
   border: 1px solid black;
+  overflow-x: auto;
   .active {
     background-color: green;
     color: #fff;
