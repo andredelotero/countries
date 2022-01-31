@@ -6,6 +6,7 @@ const StyledSpinner = styled.div`
   top: 0;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 
   .container {
     border: 0;

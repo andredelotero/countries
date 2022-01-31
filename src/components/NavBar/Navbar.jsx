@@ -1,32 +1,88 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import "./Links.css";
+import {
+  StyledContainer,
+  StyledWrapper,
+  StyledLogo,
+  StyledMenu,
+  StyledMenuItem,
+  StyledBurguer,
+} from "./StyledNavbar";
+import { FaBars } from "react-icons/fa";
 export const NavBar = () => {
+  const [isMenuOpen, setIsMEnuOpen] = useState(false);
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <Navbar.Brand>Search by region: </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="navbarScroll"
-          style={{ border: 0, userSelect: "none", textDecoration: "none" }}
-        />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{
-              maxHeight: "100px",
-              maxWidth: "1440px",
-            }}
-            navbarScroll
-          >
-            <Nav.Link href="/">All Regions</Nav.Link>
-            <Nav.Link href="/region/Africa">Africa</Nav.Link>
-            <Nav.Link href="/region/America">America</Nav.Link>
-            <Nav.Link href="/region/Asia">Asia</Nav.Link>
-            <Nav.Link href="/region/Europe">Europe</Nav.Link>
-            <Nav.Link href="/region/Oceania">Oceania</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <StyledContainer>
+      <StyledWrapper>
+        <StyledLogo>Search by region:</StyledLogo>
+        <StyledBurguer
+          onClick={() => setIsMEnuOpen(!isMenuOpen)}
+          isOpen={isMenuOpen}
+        >
+          <FaBars />
+        </StyledBurguer>
+        <StyledMenu isOpen={isMenuOpen}>
+          <StyledMenuItem>
+            <Link
+              className="Link"
+              to="/"
+              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+            >
+              All regions
+            </Link>
+          </StyledMenuItem>
+          <StyledMenuItem>
+            <Link
+              className="Link"
+              to="/region/Africa"
+              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+            >
+              Africa
+            </Link>
+          </StyledMenuItem>
+
+          <StyledMenuItem>
+            <Link
+              className="Link"
+              to="/region/America"
+              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+            >
+              America
+            </Link>
+          </StyledMenuItem>
+
+          <StyledMenuItem>
+            <Link
+              className="Link"
+              to="/region/Asia"
+              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+            >
+              Asia
+            </Link>
+          </StyledMenuItem>
+
+          <StyledMenuItem>
+            <Link
+              className="Link"
+              to="/region/Europe"
+              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+            >
+              Europe
+            </Link>
+          </StyledMenuItem>
+
+          <StyledMenuItem>
+            <Link
+              className="Link"
+              to="/region/Oceania"
+              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+            >
+              Oceania
+            </Link>
+          </StyledMenuItem>
+        </StyledMenu>
+      </StyledWrapper>
+    </StyledContainer>
   );
 };

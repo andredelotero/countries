@@ -3,8 +3,8 @@ import { CountryDetail } from "./components/CountryDetail/CountryDetail";
 import { GetCountries } from "./services/GetCountries";
 import { NavBar } from "./components/NavBar/Navbar";
 
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   return (
