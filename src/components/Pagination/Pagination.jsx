@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "./Pagination.css";
-import { StyledCard, StyledContainer } from "./Card";
+import { StyledContainer, BtCard } from "./Card";
 
 function Items({ currentItems }) {
   return (
     <>
       <StyledContainer>
+        {currentItems &&
+          currentItems.map((item) => (
+            <BtCard
+              key={item.name.common}
+              title={item.name.common}
+              flag={item.flags.png}
+              link={`/` + item.name.common}
+            ></BtCard>
+          ))}
+      </StyledContainer>
+      {/* <StyledContainer>
         {currentItems &&
           currentItems.map((item) => (
             <StyledCard key={item.name.common}>
@@ -18,7 +28,7 @@ function Items({ currentItems }) {
               <img src={item.flags.png} alt={item.name.common} />
             </StyledCard>
           ))}
-      </StyledContainer>
+      </StyledContainer> */}
     </>
   );
 }
