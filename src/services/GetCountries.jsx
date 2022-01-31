@@ -9,16 +9,15 @@ const GetCountries = ({ filter = "", url = "all" }) => {
   const { id } = useParams();
   const [searchValue, setSearchValue] = useState("");
   let fullId = "";
-  if (id !== undefined && id.length > 1) {
-    fullId = "region/" + id;
-  }
-
+  id !== undefined && id.length > 1 && (fullId = "region/" + id);
   const { data, loading } = useGetData(fullId.length > 1 ? fullId : url);
+  filter = searchValue;
+
   data.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
   data.sort((a, b) =>
     a.name.common > b.name.common ? 1 : b.name.common > a.name.common ? -1 : 0
   );
-  filter = searchValue;
+
   return (
     <>
       {loading ? (
@@ -45,4 +44,5 @@ const GetCountries = ({ filter = "", url = "all" }) => {
     </>
   );
 };
+
 export { GetCountries };

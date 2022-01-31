@@ -30,21 +30,21 @@ const StyledSpinner = styled.div`
     }
 
     .spin1 {
-      border-color: red;
+      border-color: #ff0000;
       border-bottom: 2px solid transparent;
       width: 110px;
       height: 110px;
       animation: rotate 850ms linear infinite;
     }
     .spin2 {
-      border-color: green;
+      border-color: #00ff00;
       border-bottom: 2px solid transparent;
       width: 100px;
       height: 100px;
       animation: rotate 1250ms linear infinite;
     }
     .spin3 {
-      border-color: blue;
+      border-color: #0000ff;
       border-bottom: 2px solid transparent;
       width: 90px;
       height: 90px;

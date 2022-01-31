@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const StyledCountryDetail = styled.div`
   border: 1px solid black;
   padding: 2rem;

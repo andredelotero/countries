@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { StyledRegions } from "./StyledRegion";
+
 export const Regions = () => {
   return (
     <StyledRegions>

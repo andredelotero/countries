@@ -24,15 +24,11 @@ function Items({ currentItems }) {
 }
 
 export function PaginatedItems({ data, filter }) {
-  // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
 
   useEffect(() => {
-    // Fetch items from another resources.
     const endOffset = itemOffset + 10;
     setCurrentItems(data.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(data.length / 10));
@@ -42,7 +38,6 @@ export function PaginatedItems({ data, filter }) {
     setItemOffset(0);
   }, [data]);
 
-  // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * 10) % data.length;
     setItemOffset(newOffset);
