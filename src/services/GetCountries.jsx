@@ -1,8 +1,8 @@
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { PaginatedItems } from "../components/Pagination/Pagination";
 import { Spin } from "../components/Spinner/Spinner";
-import { useParams } from "react-router-dom";
 import { useGetData } from "./GetData";
-import { useState } from "react";
 import { StyledSearch } from "../components/Search/StyledSearch";
 
 const GetCountries = ({ filter = "", url = "all" }) => {
