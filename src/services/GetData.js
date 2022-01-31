@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 export const useGetData = (url) => {
   const FULL_URL = "https://restcountries.com/v3.1/" + url;
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch(FULL_URL)
       .then((response) => response.json())
       .then((jsonResponse) => {
