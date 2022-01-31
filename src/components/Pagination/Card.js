@@ -21,6 +21,7 @@ export const BtCard = ({ title, flag, link }) => {
       <Card.Img
         variant="top"
         src={flag}
+        alt={title}
         style={{
           backgroundColor: "#f1f1f1",
           width: "100%",

@@ -17,18 +17,6 @@ function Items({ currentItems }) {
             ></BtCard>
           ))}
       </StyledContainer>
-      {/* <StyledContainer>
-        {currentItems &&
-          currentItems.map((item) => (
-            <StyledCard key={item.name.common}>
-              <p className="countryTitle">{item.name.common}</p>
-              <Link className="moreInformation" to={`/${item.name.common}`}>
-                See more information
-              </Link>
-              <img src={item.flags.png} alt={item.name.common} />
-            </StyledCard>
-          ))}
-      </StyledContainer> */}
     </>
   );
 }
