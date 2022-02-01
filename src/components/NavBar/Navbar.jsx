@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import { useState } from "react";
 import "./Links.css";
 import {
@@ -26,7 +26,7 @@ export const NavBar = () => {
           <StyledMenuItem>
             <Link
               className="Link"
-              to="/"
+              href="/"
               onClick={() => setIsMEnuOpen(!isMenuOpen)}
             >
               All regions
@@ -35,7 +35,7 @@ export const NavBar = () => {
           <StyledMenuItem>
             <Link
               className="Link"
-              to="/region/Africa"
+              href="/region/Africa"
               onClick={() => setIsMEnuOpen(!isMenuOpen)}
             >
               Africa
@@ -45,7 +45,7 @@ export const NavBar = () => {
           <StyledMenuItem>
             <Link
               className="Link"
-              to="/region/America"
+              href="/region/America"
               onClick={() => setIsMEnuOpen(!isMenuOpen)}
             >
               America
@@ -55,7 +55,7 @@ export const NavBar = () => {
           <StyledMenuItem>
             <Link
               className="Link"
-              to="/region/Asia"
+              href="/region/Asia"
               onClick={() => setIsMEnuOpen(!isMenuOpen)}
             >
               Asia
@@ -65,7 +65,7 @@ export const NavBar = () => {
           <StyledMenuItem>
             <Link
               className="Link"
-              to="/region/Europe"
+              href="/region/Europe"
               onClick={() => setIsMEnuOpen(!isMenuOpen)}
             >
               Europe
@@ -75,7 +75,7 @@ export const NavBar = () => {
           <StyledMenuItem>
             <Link
               className="Link"
-              to="/region/Oceania"
+              href="/region/Oceania"
               onClick={() => setIsMEnuOpen(!isMenuOpen)}
             >
               Oceania

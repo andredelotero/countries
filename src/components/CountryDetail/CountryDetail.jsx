@@ -1,12 +1,13 @@
-import { useParams, Link } from "react-router-dom";
+import { useLocation } from "wouter";
+import { Link } from "wouter";
 import { useGetData } from "../../services/GetData";
 import { Spin } from "../Spinner/Spinner";
 
 import { StyledCountryDetail } from "./StyledCountryDetail";
 
 const CountryDetail = () => {
-  const { id } = useParams();
-  const URL = `name/${id}`;
+  const [location] = useLocation();
+  const URL = `name/${location}`;
   const { data } = useGetData(URL);
 
   return (
@@ -32,7 +33,7 @@ const CountryDetail = () => {
             </p>
             <p>Official flag:</p>
             <img src={data[0]?.flags.png} alt={data[0]?.name.common} />
-            <Link className="link" to={`/`}>
+            <Link className="link" href={`/`}>
               Go back to index
             </Link>
           </StyledCountryDetail>

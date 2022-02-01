@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { Route } from "wouter";
+
 import { CountryDetail } from "./components/CountryDetail/CountryDetail";
 import { GetCountries } from "./services/GetCountries";
 import { NavBar } from "./components/NavBar/Navbar";
@@ -10,11 +11,9 @@ function App() {
     <>
       <h1 className="centeredText">250 countries in total</h1>
       <NavBar />
-      <Routes>
-        <Route path="/" exact element={<GetCountries />} />
-        <Route path="/:id" exact element={<CountryDetail />} />
-        <Route path="/region/:id" exact element={<GetCountries />} />
-      </Routes>
+      <Route path="/" component={GetCountries} />
+      <Route path="/:id" component={CountryDetail} />
+      <Route path="/region/:id" component={GetCountries} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ export const BtCard = ({ title, flag, link }) => {
       <img src={flag} alt={title} width={"288px"} height={"150px"} />
       <p className="title">{title}</p>
 
-      <Link className="button" to={link}>
+      <Link href={link} className="button">
         See more information
       </Link>
     </StyledCard>
