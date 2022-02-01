@@ -45,6 +45,9 @@ export const StyledMenu = styled.ul`
 export const StyledMenuItem = styled.li`
   height: 100%;
   background-color: white;
+  &:hover {
+    background-color: #0b5ed7;
+  }
   @media screen and (max-width: 960px) {
     width: 100%;
     height: 3rem;
