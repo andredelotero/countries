@@ -18,7 +18,12 @@ export const NavBar = () => {
   return (
     <StyledContainer>
       <StyledWrapper>
-        <StyledLogo>Search by region:</StyledLogo>
+        <StyledLogo>
+          Search by region:{" "}
+          {location.split("/")[2] === undefined
+            ? " All regions "
+            : location.split("/")[2]}
+        </StyledLogo>
         <StyledBurguer isOpen={isMenuOpen}>
           <FaBars onClick={() => setIsMEnuOpen(!isMenuOpen)} />
         </StyledBurguer>
