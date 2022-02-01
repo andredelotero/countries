@@ -57,7 +57,7 @@ const StyledCard = styled.div`
 export const BtCard = ({ title, flag, link }) => {
   return (
     <StyledCard>
-      <img src={flag} alt={title} />
+      <img src={flag} alt={title} width={"288px"} height={"150px"} />
       <p className="title">{title}</p>
 
       <Link className="button" to={link}>
