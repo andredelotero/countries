@@ -27,7 +27,8 @@ const GetCountries = ({ filter = "", url = "all" }) => {
         <>
           <StyledContainer>
             <p className="results">
-              You are in: {location === undefined ? "All regions" : location}
+              You are in:{" "}
+              {location === "/" ? "All regions" : location.split("/")[2]}
             </p>
             <StyledSearch
               htmlFor="search-form"

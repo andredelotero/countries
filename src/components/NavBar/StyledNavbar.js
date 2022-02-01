@@ -38,7 +38,7 @@ export const StyledMenu = styled.ul`
     padding: 0;
     position: absolute;
     top: 70px;
-    left: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+    left: ${({ isOpen }) => (isOpen ? "0" : "-120%")};
     width: 100%;
   }
 `;
