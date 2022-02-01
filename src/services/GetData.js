@@ -4,7 +4,7 @@ export const useGetData = (url) => {
   const FULL_URL = "https://restcountries.com/v3.1/" + url;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -12,13 +12,18 @@ export const useGetData = (url) => {
     fetch(FULL_URL)
       .then((response) => response.json())
       .then((jsonResponse) => {
-        setData(jsonResponse);
+        if (jsonResponse.status === undefined) {
+          setData(jsonResponse);
+          setError(null);
+        } else {
+          setError(jsonResponse.status);
+        }
       })
       .catch((err) => setError(err))
       .finally(
         setTimeout(() => {
           setLoading(false);
-        }, 400)
+        }, 500)
       );
   }, [FULL_URL]);
 

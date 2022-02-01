@@ -15,19 +15,31 @@ const GetCountries = ({ filter = "", url = "all" }) => {
 
   let fullId = "";
   location !== undefined && location.length > 1 && (fullId = location);
-  const { data, loading } = useGetData(fullId.length > 1 ? fullId : url);
+  const { data, loading, error } = useGetData(fullId.length > 1 ? fullId : url);
+  let isData = data.length > 0;
   filter = searchValue;
-
-  data?.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
-  data?.sort((a, b) =>
-    a.name.common > b.name.common ? 1 : b.name.common > a.name.common ? -1 : 0
-  );
-
+  isData && data.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
+  isData &&
+    data.sort((a, b) =>
+      a.name.common > b.name.common ? 1 : b.name.common > a.name.common ? -1 : 0
+    );
   return (
     <>
+      {error !== null ? (
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: "2rem",
+            fontSize: "2rem",
+            color: "red",
+          }}
+        >
+          Network error
+        </p>
+      ) : null}
       {loading ? (
         <Spin />
-      ) : (
+      ) : isData ? (
         <>
           <StyledSearch
             htmlFor="search-form"
@@ -45,7 +57,7 @@ const GetCountries = ({ filter = "", url = "all" }) => {
             filter={filter}
           />
         </>
-      )}
+      ) : null}
     </>
   );
 };
