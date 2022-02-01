@@ -50,19 +50,21 @@ export const StyledMenuItem = styled.li`
   }
   @media screen and (max-width: 960px) {
     width: 100%;
-    height: 3rem;
+    height: 4rem;
   }
 `;
 
 export const StyledBurguer = styled.div`
   display: none;
-  align-items: center;
-  height: 100%;
-  font-size: 1.6rem;
-  margin-right: 2rem;
-  cursor: pointer;
   transition: 250ms linear all;
+
   @media screen and (max-width: 960px) {
+    align-items: center;
+    margin-right: 2rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    height: 100%;
+    width: auto;
     transform: rotate(${({ isOpen }) => (isOpen ? "-45deg" : "0")});
     display: flex;
   }

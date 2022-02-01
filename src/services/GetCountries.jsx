@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { PaginatedItems } from "../components/Pagination/Pagination";
 import { Spin } from "../components/Spinner/Spinner";
 import { useGetData } from "./GetData";
 import { StyledSearch } from "../components/Search/StyledSearch";
-import { StyledContainer } from "./ContainerDetails";
 
 const GetCountries = ({ filter = "", url = "all" }) => {
   const [location] = useLocation();
   const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    setSearchValue("");
+  }, [location]);
+
   let fullId = "";
   location !== undefined && location.length > 1 && (fullId = location);
   const { data, loading } = useGetData(fullId.length > 1 ? fullId : url);
@@ -25,20 +29,14 @@ const GetCountries = ({ filter = "", url = "all" }) => {
         <Spin />
       ) : (
         <>
-          <StyledContainer>
-            <p className="results">
-              You are in:{" "}
-              {location === "/" ? "All regions" : location.split("/")[2]}
-            </p>
-            <StyledSearch
-              htmlFor="search-form"
-              placeholder="Search for..."
-              value={searchValue}
-              onChange={(e) => {
-                setSearchValue(e.target.value);
-              }}
-            />
-          </StyledContainer>
+          <StyledSearch
+            htmlFor="search-form"
+            placeholder="Search by country name..."
+            value={searchValue}
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+            }}
+          />
 
           <PaginatedItems
             data={data.filter((a) =>

@@ -1,5 +1,7 @@
 import { Link } from "wouter";
 import { useState } from "react";
+import { useLocation } from "wouter";
+
 import "./Links.css";
 import {
   StyledContainer,
@@ -12,31 +14,33 @@ import {
 import { FaBars } from "react-icons/fa";
 export const NavBar = () => {
   const [isMenuOpen, setIsMEnuOpen] = useState(false);
+  const [location] = useLocation();
   return (
     <StyledContainer>
       <StyledWrapper>
         <StyledLogo>Search by region:</StyledLogo>
-        <StyledBurguer
-          onClick={() => setIsMEnuOpen(!isMenuOpen)}
-          isOpen={isMenuOpen}
-        >
-          <FaBars />
+        <StyledBurguer isOpen={isMenuOpen}>
+          <FaBars onClick={() => setIsMEnuOpen(!isMenuOpen)} />
         </StyledBurguer>
         <StyledMenu isOpen={isMenuOpen}>
           <StyledMenuItem>
             <Link
-              className="Link"
+              className={
+                location.split("/")[2] === undefined ? "Link isActive" : "Link"
+              }
               href="/"
-              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+              onClick={() => setIsMEnuOpen(false)}
             >
               All regions
             </Link>
           </StyledMenuItem>
           <StyledMenuItem>
             <Link
-              className="Link"
+              className={
+                location.split("/")[2] === "Africa" ? "Link isActive" : "Link"
+              }
               href="/region/Africa"
-              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+              onClick={() => setIsMEnuOpen(false)}
             >
               Africa
             </Link>
@@ -44,9 +48,11 @@ export const NavBar = () => {
 
           <StyledMenuItem>
             <Link
-              className="Link"
+              className={
+                location.split("/")[2] === "America" ? "Link isActive" : "Link"
+              }
               href="/region/America"
-              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+              onClick={() => setIsMEnuOpen(false)}
             >
               America
             </Link>
@@ -54,9 +60,11 @@ export const NavBar = () => {
 
           <StyledMenuItem>
             <Link
-              className="Link"
+              className={
+                location.split("/")[2] === "Asia" ? "Link isActive" : "Link"
+              }
               href="/region/Asia"
-              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+              onClick={() => setIsMEnuOpen(false)}
             >
               Asia
             </Link>
@@ -64,9 +72,11 @@ export const NavBar = () => {
 
           <StyledMenuItem>
             <Link
-              className="Link"
+              className={
+                location.split("/")[2] === "Europe" ? "Link isActive" : "Link"
+              }
               href="/region/Europe"
-              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+              onClick={() => setIsMEnuOpen(false)}
             >
               Europe
             </Link>
@@ -74,9 +84,11 @@ export const NavBar = () => {
 
           <StyledMenuItem>
             <Link
-              className="Link"
+              className={
+                location.split("/")[2] === "Oceania" ? "Link isActive" : "Link"
+              }
               href="/region/Oceania"
-              onClick={() => setIsMEnuOpen(!isMenuOpen)}
+              onClick={() => setIsMEnuOpen(false)}
             >
               Oceania
             </Link>
