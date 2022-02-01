@@ -5,7 +5,7 @@ export const StyledContainer = styled.div`
   height: 70px;
   border: 1px solid #cecece;
   max-width: 1360px;
-  margin: 0 auto;
+  margin: 1rem auto;
 `;
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -19,11 +19,21 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledLogo = styled.div`
-  margin-left: 2rem;
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  justify-content: flex-start;
+  font-size: 1rem;
+  max-width: 300px;
+  width: 80%;
   height: 100%;
+  p {
+    margin-left: 1rem;
+    overflow-x: hidden;
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: fit-content;
+    width: 70%;
+  }
 `;
 
 export const StyledMenu = styled.ul`

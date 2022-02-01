@@ -20,9 +20,11 @@ export const NavBar = () => {
       <StyledWrapper>
         <StyledLogo>
           You are in:{" "}
-          {location.split("/")[2] === undefined
-            ? " All regions "
-            : location.split("/")[2]}
+          <p>
+            {location.split("/")[2] === undefined
+              ? " All regions "
+              : decodeURI(location.split("/")[2])}
+          </p>
         </StyledLogo>
         <StyledBurguer isOpen={isMenuOpen}>
           <FaBars onClick={() => setIsMEnuOpen(!isMenuOpen)} />
