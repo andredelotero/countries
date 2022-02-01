@@ -4,6 +4,7 @@ import { PaginatedItems } from "../components/Pagination/Pagination";
 import { Spin } from "../components/Spinner/Spinner";
 import { useGetData } from "./GetData";
 import { StyledSearch } from "../components/Search/StyledSearch";
+import { StyledContainer } from "./ContainerDetails";
 
 const GetCountries = ({ filter = "", url = "all" }) => {
   const { id } = useParams();
@@ -24,17 +25,20 @@ const GetCountries = ({ filter = "", url = "all" }) => {
         <Spin />
       ) : (
         <>
-          <p className="results">
-            You are in: {id === undefined ? "All regions" : id}
-          </p>
-          <StyledSearch
-            htmlFor="search-form"
-            placeholder="Search for..."
-            value={searchValue}
-            onChange={(e) => {
-              setSearchValue(e.target.value);
-            }}
-          />
+          <StyledContainer>
+            <p className="results">
+              You are in: {id === undefined ? "All regions" : id}
+            </p>
+            <StyledSearch
+              htmlFor="search-form"
+              placeholder="Search for..."
+              value={searchValue}
+              onChange={(e) => {
+                setSearchValue(e.target.value);
+              }}
+            />
+          </StyledContainer>
+
           <PaginatedItems
             data={data.filter((a) =>
               a.name.common.startsWith(filter.toUpperCase())

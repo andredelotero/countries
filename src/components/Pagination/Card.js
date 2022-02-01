@@ -17,7 +17,14 @@ export const StyledContainer = styled.div`
 
 export const BtCard = ({ title, flag, link }) => {
   return (
-    <Card style={{ width: "18rem", margin: "1rem", height: "300px" }}>
+    <Card
+      style={{
+        width: "18rem",
+        margin: "1rem",
+        height: "300px",
+        backgroundColor: "#f0f0f0",
+      }}
+    >
       <Card.Img
         variant="top"
         src={flag}
