@@ -7,14 +7,13 @@ import { StyledCountryDetail } from "./StyledCountryDetail";
 
 const CountryDetail = () => {
   const [location] = useLocation();
-  const URL = `name/${location}`;
-  const { data } = useGetData(URL);
-
+  const URL = `name/${location.split("/")[2]}`;
+  const { data, error } = useGetData(URL);
   return (
     <>
-      {data.length < 1 ? (
+      {data.length < 1 && error == null ? (
         <Spin />
-      ) : data.length !== undefined ? (
+      ) : data.length !== undefined && error == null ? (
         <>
           <StyledCountryDetail>
             <p>Name: {data[0]?.name.common}</p>
@@ -38,8 +37,21 @@ const CountryDetail = () => {
             </Link>
           </StyledCountryDetail>
         </>
+      ) : error !== 404 ? (
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: "2rem",
+            fontSize: "2rem",
+            color: "red",
+          }}
+        >
+          Network error
+        </p>
       ) : (
-        <p>country not found</p>
+        <p style={{ textAlign: "center", marginTop: "2rem", fontSize: "2rem" }}>
+          country not found
+        </p>
       )}
     </>
   );

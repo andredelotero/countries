@@ -12,7 +12,7 @@ function App() {
       <h1 className="centeredText">250 countries in total</h1>
       <NavBar />
       <Route path="/" component={GetCountries} />
-      <Route path="/:id" component={CountryDetail} />
+      <Route path="/country/:id" component={CountryDetail} />
       <Route path="/region/:id" component={GetCountries} />
     </>
   );

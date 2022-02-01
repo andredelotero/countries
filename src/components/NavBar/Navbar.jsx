@@ -19,7 +19,7 @@ export const NavBar = () => {
     <StyledContainer>
       <StyledWrapper>
         <StyledLogo>
-          Search by region:{" "}
+          You are in:{" "}
           {location.split("/")[2] === undefined
             ? " All regions "
             : location.split("/")[2]}

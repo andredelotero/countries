@@ -13,7 +13,7 @@ function Items({ currentItems }) {
               key={item.name.common}
               title={item.name.common}
               flag={item.flags.png}
-              link={`/` + item.name.common}
+              link={`/country/` + item.name.common}
             ></BtCard>
           ))}
       </StyledContainer>
