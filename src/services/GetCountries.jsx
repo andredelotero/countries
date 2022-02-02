@@ -4,6 +4,7 @@ import { PaginatedItems } from "../components/Pagination/Pagination";
 import { Spin } from "../components/Spinner/Spinner";
 import { useGetData } from "./GetData";
 import { StyledSearch } from "../components/Search/StyledSearch";
+import { StyledError } from "../components/CountryDetail/StyledCountryDetail";
 
 const GetCountries = ({ filter = "", url = "all" }) => {
   const [location] = useLocation();
@@ -16,30 +17,18 @@ const GetCountries = ({ filter = "", url = "all" }) => {
   let fullId = "";
   location !== undefined && location.length > 1 && (fullId = location);
   const { data, loading, error } = useGetData(fullId.length > 1 ? fullId : url);
-  let isData = data.length > 0;
+
   filter = searchValue;
-  isData && data.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
-  isData &&
+  !error && data.forEach((e) => (e.name.common = e.name.common.toUpperCase()));
+  !error &&
     data.sort((a, b) =>
       a.name.common > b.name.common ? 1 : b.name.common > a.name.common ? -1 : 0
     );
   return (
     <>
-      {error !== null ? (
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: "2rem",
-            fontSize: "2rem",
-            color: "red",
-          }}
-        >
-          Network error
-        </p>
-      ) : null}
       {loading ? (
         <Spin />
-      ) : isData ? (
+      ) : !error ? (
         <>
           <StyledSearch
             htmlFor="search-form"
@@ -57,7 +46,9 @@ const GetCountries = ({ filter = "", url = "all" }) => {
             filter={filter}
           />
         </>
-      ) : null}
+      ) : (
+        <StyledError>{error}</StyledError>
+      )}
     </>
   );
 };

@@ -32,3 +32,10 @@ export const StyledCountryDetail = styled.div`
     }
   }
 `;
+
+export const StyledError = styled.p`
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #ff0000;
+`;

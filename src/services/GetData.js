@@ -10,16 +10,17 @@ export const useGetData = (url) => {
     setLoading(true);
     setData([]);
     fetch(FULL_URL)
-      .then((response) => response.json())
-      .then((jsonResponse) => {
-        if (jsonResponse.status === undefined) {
-          setData(jsonResponse);
-          setError(null);
-        } else {
-          setError(jsonResponse.status);
+      .then((response) => {
+        if (!response.ok) {
+          throw Error("could not fetch the data for that resource");
         }
+        return response.json();
       })
-      .catch((err) => setError(err))
+      .then((jsonResponse) => {
+        setData(jsonResponse);
+        setError(null);
+      })
+      .catch((err) => setError(err.message))
       .finally(
         setTimeout(() => {
           setLoading(false);

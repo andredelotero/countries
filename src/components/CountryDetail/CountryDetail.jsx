@@ -3,17 +3,17 @@ import { Link } from "wouter";
 import { useGetData } from "../../services/GetData";
 import { Spin } from "../Spinner/Spinner";
 
-import { StyledCountryDetail } from "./StyledCountryDetail";
+import { StyledCountryDetail, StyledError } from "./StyledCountryDetail";
 
 const CountryDetail = () => {
   const [location] = useLocation();
   const URL = `name/${location.split("/")[2]}`;
-  const { data, error } = useGetData(URL);
+  const { data, loading, error } = useGetData(URL);
   return (
     <>
-      {data.length < 1 && error == null ? (
+      {loading ? (
         <Spin />
-      ) : data.length !== undefined && error == null ? (
+      ) : !error ? (
         <>
           <StyledCountryDetail>
             <p>Name: {data[0]?.name.common}</p>
@@ -37,21 +37,8 @@ const CountryDetail = () => {
             </Link>
           </StyledCountryDetail>
         </>
-      ) : error !== 404 ? (
-        <p
-          style={{
-            textAlign: "center",
-            marginTop: "2rem",
-            fontSize: "2rem",
-            color: "red",
-          }}
-        >
-          Network error
-        </p>
       ) : (
-        <p style={{ textAlign: "center", marginTop: "2rem", fontSize: "2rem" }}>
-          country not found
-        </p>
+        <StyledError>{error}</StyledError>
       )}
     </>
   );
